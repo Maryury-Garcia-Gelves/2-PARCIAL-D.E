@@ -1,11 +1,42 @@
-Untitled
+MARYURY GARCIA GELVES 1950186
 ================
 
-## GitHub Documents
+## Mediciones diarias de la calidad del aire en Nueva York.
 
-This is an R Markdown format used for publishing markdown documents to
-GitHub. When you click the **Knit** button all R code chunks are run and
-a markdown file (.md) suitable for publishing to GitHub is generated.
+En este trabajo visualizaremos una base de datos la cual nos muestra las
+mediciones diarias de la calidad del aire en Nueva York, en un marco de
+datos de 153 observaciones sobre 6 variables., de mayo a septiembre de
+1973, teniendo en cuenta los criterios de clasificación de
+**Airquality.**
+
+Crearemos un Dataframe de la calidad de aire en Nueva York.
+
+``` r
+data(airquality)
+library(dplyr)
+```
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
+airquality <- mutate(airquality, Reflectancia=(Solar.R-Temp)^2/Ozone)
+
+Reporte <-airquality$Reflectancia 
+Mayo <- mean(Reporte[1:31])
+Junio <- mean(Reporte[32:61])
+Julio <- mean(Reporte[62:92])
+Agosto <- mean(Reporte[93:123])
+Septiembre <-mean(Reporte[123:153])
+```
 
 ## Including Code
 
